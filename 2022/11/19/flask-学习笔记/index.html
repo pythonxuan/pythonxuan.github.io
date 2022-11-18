@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/11 | 业臻博客</title>
+  <title>flask 学习笔记 | 业臻博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="业臻博客">
-<meta property="og:url" content="http://example.com/archives/2022/11/index.html">
+  <meta name="description" content="flask 学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flask 学习笔记">
+<meta property="og:url" content="http://example.com/2022/11/19/flask-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="业臻博客">
+<meta property="og:description" content="flask 学习笔记">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-18T16:08:53.000Z">
+<meta property="article:modified_time" content="2022-11-18T16:09:58.040Z">
 <meta property="article:author" content="业臻">
 <meta name="twitter:card" content="summary">
   
@@ -142,142 +146,229 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-flask-学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      flask 学习笔记
+    </h1>
+  
+
+        <!--显示阅读次数-->
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/19/flask-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          <script  async  src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2022/11/19/flask-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
   	<time datetime="2022-11-18T16:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-19</time>
 </a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="flask-学习笔记"><a href="#flask-学习笔记" class="headerlink" title="flask 学习笔记"></a>flask 学习笔记</h1><span id="more"></span>
+
+<h2 id="flask-项目配置"><a href="#flask-项目配置" class="headerlink" title="flask 项目配置"></a>flask 项目配置</h2><p><strong>debug参数</strong></p>
+<p>在项目设置中开启或者在运行参数中开启</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">run.app(debug=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 开启后当我们进行代码修改时代码会进行实时保存重新加载；</span></span><br><span class="line"><span class="comment">#当我们进行开发时，出现bug，如果开启了debug模式，在浏览器上可以看见出错信息</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>修改host</strong></p>
+<p>在项目设置中进行接口参数设置 additionnal options</p>
+<p>–host&#x3D;0.0.0.0 此处为匹配你当前所在的IP</p>
+<p><strong>修改port</strong></p>
+<p>修改监控端口，默认是5000.我们可通过修改参数</p>
+<p>additionnal options 与前面参数分开 添加 –port&#x3D;8000 修改监控端口为8000</p>
+<h2 id="flask-url与试图映射"><a href="#flask-url与试图映射" class="headerlink" title="flask url与试图映射"></a>flask url与试图映射</h2><p><strong>创建路由</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/viwe&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">viwe</span>():</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;该视图为&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>访问方式就 ip&#x2F;viwe</p>
+<p><strong>带参数视图</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;blog/&lt;blog_id&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">blog_id</span>):</span><br><span class="line">	<span class="keyword">return</span> <span class="string">f&quot;你访问的博客id为:<span class="subst">&#123;blog_id&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>第二中方式为使用request 方式进行参数获取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/blog/list?page=2 获取第二页的数据</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;blog/list&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog_list</span>():</span><br><span class="line">	page = request.args.get(<span class="string">&quot;page&quot;</span>,default=<span class="number">1</span>,<span class="built_in">type</span>=<span class="built_in">int</span>) <span class="comment">#类型可为String 字符串 ，any 是任何值</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">f&quot;你访问的博客为第:<span class="subst">&#123;page&#125;</span>页&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="过滤器使用"><a href="#过滤器使用" class="headerlink" title="过滤器使用"></a>过滤器使用</h2><p>过滤器使用‘|’ 进行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#例如定义一个路由函数filter</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;filter&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">filter</span>():</span><br><span class="line">    user = User(username=<span class="string">&quot;张&quot;</span>,email =<span class="string">&quot;123@qq.como&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;filter.html&quot;</span>,user=user)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;&#123;user.username&#125;&#125;/&#123;&#123;user.username|length&#125;&#125; <span class="comment">&lt;!--后面使用的过滤器可以返回该属性--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义过滤器函数"><a href="#自定义过滤器函数" class="headerlink" title="自定义过滤器函数"></a>自定义过滤器函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义一个过滤器</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dformat_date</span>(<span class="params">value,<span class="built_in">format</span>=<span class="string">&quot;%Y-%d-%m %H-%M&quot;</span></span>):</span><br><span class="line">    <span class="keyword">return</span> value.strftime(<span class="built_in">format</span>)</span><br><span class="line"><span class="comment">#添加过滤器</span></span><br><span class="line">app.add_template_filter(dformat_date,<span class="string">&quot;dformat&quot;</span>)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hiv</span>&gt;</span>&#123;&#123; time|dformat &#125;&#125;<span class="tag">&lt;/<span class="name">hiv</span>&gt;</span><span class="comment">&lt;!--对自定义的过滤器进行调用--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/toux.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/toux.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/19/flask-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">flask 学习笔记</a>
-    </h1>
-  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 
-       <!--显示阅读次数-->
+      
 
-<!--显示阅读次数完毕-->
-        <div class="article-info info-on-right">
-          
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/11/19/flask-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-11-16T14:09:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/11/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">java学习笔记</a>
-    </h1>
-  
-
-       <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#flask-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">flask 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#flask-%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">flask 项目配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flask-url%E4%B8%8E%E8%AF%95%E5%9B%BE%E6%98%A0%E5%B0%84"><span class="toc-number">1.2.</span> <span class="toc-text">flask url与试图映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">过滤器使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">自定义过滤器函数</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/15/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-11-15T04:49:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-15</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/15/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django学习笔记</a>
-    </h1>
   
 
-       <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2022-11-13T08:52:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">我的第一篇文章</a>
-    </h1>
   
 
-       <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -302,8 +393,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
